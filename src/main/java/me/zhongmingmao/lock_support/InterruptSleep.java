@@ -13,7 +13,7 @@ public class InterruptSleep {
             log("after TimeUnit.SECONDS.sleep(10)");
         } catch (InterruptedException e) {
             log("interrupted when sleeping!!");
-            // 中断状态被重置
+            // 抛出InterruptedException异常并重置中断状态
             log(String.format("interrupt status [%s]", Thread.currentThread().isInterrupted()));
         }
         

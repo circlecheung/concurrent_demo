@@ -19,7 +19,7 @@ public class InterruptSynchronized {
     
     private static Thread acquireLockThread = new Thread(() -> {
         log("try to acquire LOCK");
-        synchronized (LOCK) {
+        synchronized (LOCK) { // synchronized不响应中断
             log("hold LOCK successfully!!");
         }
     }, "acquireLockThread");
