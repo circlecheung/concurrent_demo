@@ -30,7 +30,7 @@ public class AtomicStampedReferenceDemo {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            boolean success = stampedReference.compareAndSet(100, 300, stamp, stamp + 1);
+            boolean success = stampedReference.compareAndSet(10, 30, stamp, stamp + 1);
             System.out.println(String.format("thread: %s , compareAndSet success : %s , current value : %s",
                     Thread.currentThread().getName(), success, stampedReference.getReference()));
         });

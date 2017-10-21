@@ -3,7 +3,7 @@ package me.zhongmingmao.lock_support;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 验证中断一个正在运行状态的线程，只会设置中断状态，而不会抛出InterruptedException
+ * 验证中断一个处于RUNNABLE状态的线程，只会设置中断状态，而不会抛出InterruptedException
  */
 public class InterruptRunning {
     private static Thread runningThread = new Thread(() -> {

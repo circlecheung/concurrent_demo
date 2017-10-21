@@ -3,7 +3,7 @@ package me.zhongmingmao.lock_support;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 验证Synchronized无法响应中断,要么获得锁，要么一直等待
+ * 验证因synchronized而进入阻塞状态的线程是无法响应中断的，线程要么获得锁，要么一直等待
  */
 public class InterruptSynchronized {
     private static Object LOCK = new Object();
@@ -40,7 +40,7 @@ public class InterruptSynchronized {
         TimeUnit.SECONDS.sleep(1); // 确保holdLockThread持有锁
         acquireLockThread.start(); // 尝试获得锁，进入阻塞状态
         TimeUnit.MILLISECONDS.sleep(100); // 确保acquireLockThread进入阻塞状态
-        interruptThread.start();
+        interruptThread.start(); // 尝试中断在处于阻塞状态的acquireLockThread，acquireLockThread并不会响应中断
         /*
         输出：
         holdLockThread : hold LOCK forever!!
